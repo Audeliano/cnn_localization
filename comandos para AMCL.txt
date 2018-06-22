@@ -1,0 +1,14 @@
+roscore
+
+rosparam set use_sim_time true
+
+cd bags/
+
+rosrun map_server map_server 2011-01-19-07-49-38.yaml 
+
+rosbag play 2011-01-19-07-49-38_\[mit\ stata\ center\ data\ set\].bag --clock 
+
+rviz
+
+rosrun amcl amcl scan:=base_scan _odom_frame_id:=odom_combined
+
